@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn" onclick="Adicionar()"> Click Me !</button>
+    <br><br>
+    <div id="conteudo">
+        <input type="text" id="nome">
+        <button id="add" onclick="addLista()">ADD!</button>
+        <ul id="ul">
+            <li>teste1</li>
+            <li>teste2</li>
+            <li>teste3</li>
+        </ul>
+    </div>
+
+    <script>
+        function Adicionar() {
+            // var elementBody = document.querySelector('#conteudo');
+            var node = document.createElement('div'); // Create a <div> node
+            node.style.backgroundColor = 'red';
+            node.style.width = '100px';
+            node.style.height = '100px';
+            node.style.margin = '15px';
+            node.onmouseout
+            node.addEventListener('mousemove', function (e) {
+                function getRandomColor() {
+                    var letters = '0123456789ABCDEF';
+                    var color = '#';
+                    for (var i = 0; i < 6; i++) {
+                        color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    return color;
+                }
+                var newColor = getRandomColor();
+                node.style.backgroundColor = newColor;
+            });
+            //var textnode = document.createTextNode("Water");         // Create a text node
+            //node.appendChild(textnode);                              // Append the text to <li>
+            document.getElementById('conteudo').appendChild(node);
+        }
+
+        function addLista() {
+            var nomeAdd = document.getElementById('nome').value;
+            var node = document.createElement('li');
+            var textNode = document.createTextNode(nomeAdd);
+            node.appendChild(textNode);
+            document.getElementById('ul').appendChild(node);
+            document.getElementById('nome').value = '';
+        }
+
+        function ArrayAddNome() {
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            for (let i = 0; i < nomes.length; i++) {
+                var nomeAdd = nomes[i];
+                var node = document.createElement('li');
+                var textNode = document.createTextNode(nomeAdd);
+                node.appendChild(textNode);
+                document.getElementById('ul').appendChild(node);
+                document.getElementById('nome').value = '';
+            }
+        }
+        ArrayAddNome();
+    </script>
+</body>
+</html>
